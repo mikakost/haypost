@@ -1,5 +1,6 @@
-from .pages.main_page import MainPage
-from .pages.locators import MainPageLocators
+import time
+from pages.main_page import MainPage
+from pages.locators import MainPageLocators
 
 
 class TestTrackingNumber:
@@ -9,7 +10,7 @@ class TestTrackingNumber:
         page = MainPage(browser, link)
         page.open()
         page.track_shipment(track_number)
-        time.sleep(10)
+        time.sleep(5)
         assert page.is_element_present(*MainPageLocators.TRACK_INFO), (
             "Track info not found")
 
